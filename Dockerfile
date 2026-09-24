@@ -5,6 +5,6 @@ RUN apk add --no-cache curl jq bash
 
 WORKDIR /app
 COPY demo.sh .
-RUN chmod +x demo.sh
+RUN sed -i 's/\r$//' ./demo.sh && chmod +x ./demo.sh
 
 CMD ["./demo.sh"]
